@@ -46,6 +46,9 @@ API REST para gestionar una colección de videojuegos, construida con Spring Boo
 ```bash
 ./mvnw spring-boot:run
 ```
+## ⚠️ Entorno de demo
+
+Esta API es una demo pública desplegada en Railway. Los datos persisten en PostgreSQL pero son accesibles por cualquier usuario registrado. No almacenes información sensible.
 
 ## 👤 Autor
 mmorenodev — [GitHub](https://github.com/mmoreno-byte)
