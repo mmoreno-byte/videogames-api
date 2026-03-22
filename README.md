@@ -5,24 +5,24 @@ API REST para gestionar una colección de videojuegos, construida con Spring Boo
 ## 🌐 URL en producción
 `https://videogames-api-production-16b1.up.railway.app`
 
-## 📖 Documentación
+## 📖 Documentación Swagger
 `https://videogames-api-production-16b1.up.railway.app/swagger-ui.html`
 
 ## ✨ Características
-- Autenticación con JWT
+- Autenticación con JWT (registro e inicio de sesión)
 - CRUD completo de videojuegos
 - Búsqueda por título, género y plataforma
-- Validación de datos
-- Documentación con Swagger
+- Validación de datos con Jakarta Validation
+- Documentación automática con Swagger/OpenAPI
+- Base de datos PostgreSQL persistente
 - Desplegada en Railway
 
 ## 🛠️ Tecnologías
 - Java 21
 - Spring Boot 3.4
-- Spring Security
+- Spring Security + JWT
 - Spring Data JPA
-- H2 Database
-- JWT (jjwt)
+- PostgreSQL
 - Lombok
 - SpringDoc OpenAPI
 
@@ -32,7 +32,7 @@ API REST para gestionar una colección de videojuegos, construida con Spring Boo
 - `POST /api/auth/register` — Registrar usuario
 - `POST /api/auth/login` — Obtener token JWT
 
-### Videojuegos (requieren token)
+### Videojuegos (requieren token Bearer)
 - `GET /api/games` — Listar todos
 - `GET /api/games/{id}` — Buscar por id
 - `GET /api/games/search?title=` — Buscar por título
@@ -42,13 +42,13 @@ API REST para gestionar una colección de videojuegos, construida con Spring Boo
 - `PUT /api/games/{id}` — Actualizar videojuego
 - `DELETE /api/games/{id}` — Eliminar videojuego
 
+## ⚠️ Demo pública
+Esta API es una demo. Cualquier usuario puede registrarse y gestionar el contenido. No almacenes información sensible.
+
 ## 📦 Instalación local
-```bash
+\`\`\`bash
 ./mvnw spring-boot:run
-```
-## ⚠️ Entorno de demo
+\`\`\`
 
-Esta API es una demo pública desplegada en Railway. Los datos persisten en PostgreSQL pero son accesibles por cualquier usuario registrado. No almacenes información sensible.
-
-## 👤 Autor
-mmorenodev — [GitHub](https://github.com/mmoreno-byte)
+## 👤 Autora
+mmorenodev — [GitHub](https://github.com/mmoreno-byte) · [Portfolio](https://mmoreno-byte.github.io/mmorenodev/)
