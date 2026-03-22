@@ -10,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import java.util.List;
 
 @Configuration
 public class SecurityConfig {
@@ -22,27 +24,36 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        
         http
-    .csrf(csrf -> csrf.disable())
-    .formLogin(form -> form.disable())
-    .httpBasic(basic -> basic.disable())
-    .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-    .authorizeHttpRequests(auth -> auth
-        .requestMatchers(
-            "/api/auth/**",
-            "/swagger-ui/**",
-            "/swagger-ui.html",
-            "/api-docs/**",
-            "/h2-console/**"
-        ).permitAll()
-        .anyRequest().authenticated()
-    )
-    .headers(h -> h.frameOptions(f -> f.disable()))
-    .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-return http.build();
-}
-
+            .cors(cors -> cors.configurationSource(request -> {
+                CorsConfiguration config = new CorsConfiguration();
+                config.setAllowedOrigins(List.of(
+                    "http://localhost:5173",
+                    "https://mmoreno-byte.github.io"
+                ));
+                config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+                config.setAllowedHeaders(List.of("*"));
+                config.setAllowCredentials(true);
+                return config;
+            }))
+            .csrf(csrf -> csrf.disable())
+            .formLogin(form -> form.disable())
+            .httpBasic(basic -> basic.disable())
+            .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/api/auth/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/api-docs/**",
+                    "/h2-console/**"
+                ).permitAll()
+                .anyRequest().authenticated()
+            )
+            .headers(h -> h.frameOptions(f -> f.disable()))
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
