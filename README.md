@@ -1,12 +1,18 @@
 # 🎮 Videogames API
 
-API REST para gestionar una colección de videojuegos, construida con Spring Boot y autenticación JWT.
+API REST para gestionar una colección de videojuegos, construida con Spring Boot y autenticación JWT. Diseñada para ejecutarse localmente en un entorno de desarrollo.
 
-## 🌐 URL en producción
-`https://videogames-api-production-16b1.up.railway.app`
+## 🚀 Ejecución local
+Ejecuta la API con:
+```bash
+./mvnw spring-boot:run
+```
+
+La aplicación estará disponible en `http://localhost:8080`
 
 ## 📖 Documentación Swagger
-`https://videogames-api-production-16b1.up.railway.app/swagger-ui.html`
+Una vez ejecutada, accede a la documentación Swagger en:
+`http://localhost:8080/swagger-ui.html`
 
 ## ✨ Características
 - Autenticación con JWT (registro e inicio de sesión)
@@ -14,8 +20,7 @@ API REST para gestionar una colección de videojuegos, construida con Spring Boo
 - Búsqueda por título, género y plataforma
 - Validación de datos con Jakarta Validation
 - Documentación automática con Swagger/OpenAPI
-- Base de datos PostgreSQL persistente
-- Desplegada en Railway
+- Base de datos PostgreSQL persistente (configurable localmente)
 
 ## 🛠️ Tecnologías
 - Java 21
@@ -42,13 +47,17 @@ API REST para gestionar una colección de videojuegos, construida con Spring Boo
 - `PUT /api/games/{id}` — Actualizar videojuego
 - `DELETE /api/games/{id}` — Eliminar videojuego
 
-## ⚠️ Demo pública
-Esta API es una demo. Cualquier usuario puede registrarse y gestionar el contenido. No almacenes información sensible.
-
 ## 📦 Instalación local
-\`\`\`bash
-./mvnw spring-boot:run
-\`\`\`
+
+### Requisitos previos
+- Java 21+
+- Maven
+- PostgreSQL (o configurable con otra BD)
+
+### Pasos
+1. Clona el repositorio
+2. Configura la conexión a BD en `application.properties`
+3. Ejecuta: `./mvnw spring-boot:run`
 
 ## 👤 Autora
 mmorenodev — [GitHub](https://github.com/mmoreno-byte) · [Portfolio](https://mmoreno-byte.github.io/mmorenodev/)
