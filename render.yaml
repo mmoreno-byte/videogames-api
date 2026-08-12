@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: videogames-api
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api-docs
+    envVars:
+      - key: SPRING_DATASOURCE_HOST
+        fromDatabase:
+          name: videogames-db
+          property: host
+      - key: SPRING_DATASOURCE_PORT
+        fromDatabase:
+          name: videogames-db
+          property: port
+      - key: SPRING_DATASOURCE_DB
+        fromDatabase:
+          name: videogames-db
+          property: database
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: videogames-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: videogames-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+
+databases:
+  - name: videogames-db
+    plan: free
