@@ -1,6 +1,12 @@
 # 🎮 Videogames API
 
-API REST para gestionar una colección de videojuegos, construida con Spring Boot y autenticación JWT. Diseñada para ejecutarse localmente en un entorno de desarrollo.
+API REST para gestionar una colección de videojuegos, construida con Spring Boot y autenticación JWT.
+
+## 🌐 Ver en vivo
+
+[videogames-api-wjej.onrender.com](https://videogames-api-wjej.onrender.com) — docs en [`/api-docs`](https://videogames-api-wjej.onrender.com/api-docs)
+
+Frontend: [mmoreno-byte.github.io/videogames-frontend](https://mmoreno-byte.github.io/videogames-frontend/)
 
 ## 🚀 Ejecución local
 Ejecuta la API con:
