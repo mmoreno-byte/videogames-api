@@ -26,7 +26,7 @@ Una vez ejecutada, accede a la documentación Swagger en:
 - Búsqueda por título, género y plataforma
 - Validación de datos con Jakarta Validation
 - Documentación automática con Swagger/OpenAPI
-- Base de datos PostgreSQL persistente (configurable localmente)
+- Base de datos PostgreSQL persistente (Neon en producción, configurable localmente)
 
 ## 🛠️ Tecnologías
 - Java 21
